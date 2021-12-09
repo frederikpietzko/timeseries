@@ -1,16 +1,10 @@
 import { Controller, Get } from '@nestjs/common';
-
 import { Message } from '@timeseries/timeseries-api-interfaces';
-
 import { AppService } from './app.service';
-import { AuthService } from '@timeseries/authentication';
 
 @Controller()
 export class AppController {
-  constructor(
-    private readonly appService: AppService,
-    private readonly authService: AuthService,
-  ) {}
+  constructor(private readonly appService: AppService) {}
 
   @Get('hello')
   getData(): Message {
