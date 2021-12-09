@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@timeseries/api-interfaces';
+import { Message } from '@timeseries/timeseries-api-interfaces';
 
 @Component({
   selector: 'timeseries-root',

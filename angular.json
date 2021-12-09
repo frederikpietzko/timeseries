@@ -1,68 +1,73 @@
 {
   "version": 1,
   "projects": {
-    "api": {
-      "root": "apps/api",
-      "sourceRoot": "apps/api/src",
-      "projectType": "application",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/api",
-            "main": "apps/api/src/main.ts",
-            "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/api/src/environments/environment.ts",
-                  "with": "apps/api/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "api:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
-          "options": {
-            "jestConfig": "apps/api/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "api-interfaces": {
-      "root": "libs/api-interfaces",
-      "sourceRoot": "libs/api-interfaces/src",
+    "authentication": {
+      "root": "libs/authentication",
+      "sourceRoot": "libs/authentication/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+            "lintFilePatterns": ["libs/authentication/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/authentication"],
+          "options": {
+            "jestConfig": "libs/authentication/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "database": {
+      "root": "libs/database",
+      "sourceRoot": "libs/database/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/database/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/database"],
+          "options": {
+            "jestConfig": "libs/database/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "feature-auth": {
+      "projectType": "library",
+      "root": "libs/feature-auth",
+      "sourceRoot": "libs/feature-auth/src",
+      "prefix": "timeseries",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/feature-auth"],
+          "options": {
+            "jestConfig": "libs/feature-auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/feature-auth/src/**/*.ts",
+              "libs/feature-auth/src/**/*.html"
+            ]
           }
         }
       },
@@ -165,15 +170,67 @@
       },
       "tags": []
     },
-    "timeseries-e2e": {
-      "root": "apps/timeseries-e2e",
-      "sourceRoot": "apps/timeseries-e2e/src",
+    "timeseries-api": {
+      "root": "apps/timeseries-api",
+      "sourceRoot": "apps/timeseries-api/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/timeseries-api",
+            "main": "apps/timeseries-api/src/main.ts",
+            "tsConfig": "apps/timeseries-api/tsconfig.app.json",
+            "assets": ["apps/timeseries-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/timeseries-api/src/environments/environment.ts",
+                  "with": "apps/timeseries-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "timeseries-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/timeseries-api/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/timeseries-api"],
+          "options": {
+            "jestConfig": "apps/timeseries-api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "timeseries-api-e2e": {
+      "root": "apps/timeseries-api-e2e",
+      "sourceRoot": "apps/timeseries-api-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/timeseries-e2e/cypress.json",
+            "cypressConfig": "apps/timeseries-api-e2e/cypress.json",
             "devServerTarget": "timeseries:serve:development"
           },
           "configurations": {
@@ -186,12 +243,63 @@
           "builder": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["apps/timeseries-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["apps/timeseries-api-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
       "implicitDependencies": ["timeseries"]
+    },
+    "timeseries-api-interfaces": {
+      "root": "libs/timeseries-api-interfaces",
+      "sourceRoot": "libs/timeseries-api-interfaces/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/timeseries-api-interfaces/**/*.ts"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "timeseries-data-access": {
+      "projectType": "library",
+      "root": "libs/timeseries-data-access",
+      "sourceRoot": "libs/timeseries-data-access/src",
+      "prefix": "timeseries",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/timeseries-data-access"],
+          "options": {
+            "jestConfig": "libs/timeseries-data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/timeseries-data-access/src/**/*.ts",
+              "libs/timeseries-data-access/src/**/*.html"
+            ]
+          }
+        },
+        "generate": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "npx graphql-codegen --config libs/timeseries-data-access/codegen.yml"
+              }
+            ]
+          }
+        }
+      },
+      "tags": []
     }
   }
 }

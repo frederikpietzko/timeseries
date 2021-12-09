@@ -10,12 +10,22 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["es2017", "dom", "ESNext.AsyncIterable"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "allowJs": false,
+    "strict": true,
     "paths": {
-      "@timeseries/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@timeseries/authentication": ["libs/authentication/src/index.ts"],
+      "@timeseries/database": ["libs/database/src/index.ts"],
+      "@timeseries/feature-auth": ["libs/feature-auth/src/index.ts"],
+      "@timeseries/timeseries-api-interfaces": [
+        "libs/timeseries-api-interfaces/src/index.ts"
+      ],
+      "@timeseries/timeseries-data-access": [
+        "libs/timeseries-data-access/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

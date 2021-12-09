@@ -1,0 +1,12 @@
+default:
+  type: "postgres"
+  host: "localhost"
+  port: 5432
+  username: test
+  password: test
+  database: "database"
+  synchronize: true
+  migrations:
+    - apps/timeseries-api/src/migrations/*
+  cli:
+    migrationsDir: "apps/timeseries-api/arc/migrations"

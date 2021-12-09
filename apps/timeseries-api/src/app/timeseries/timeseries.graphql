@@ -1,0 +1,7 @@
+type TimeLog {
+  id: String
+}
+
+type Query {
+  timeLog(id: String!): TimeLog
+}
