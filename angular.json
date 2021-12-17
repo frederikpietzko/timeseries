@@ -120,6 +120,7 @@
       "root": "apps/timeseries",
       "sourceRoot": "apps/timeseries/src",
       "prefix": "timeseries",
+      "sourceLocale": "en-US",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

@@ -1,5 +1,5 @@
 import { Component, Directive, Input } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { StyleProvider } from '../styling/styling.provider';
 
 @Directive()
@@ -10,6 +10,9 @@ export abstract class BaseInput {
   @Input() name!: string;
   @Input() placeholder!: string;
   @Input() required!: string;
+  @Input() validationResult?: Observable<
+    true | string | null | undefined
+  > | null;
 
   constructor() {}
 

@@ -10,6 +10,7 @@ export class AuthenticationService {
 
   login(email: string, password: string): Observable<string> {
     // FIXME Put this stuff into proper types in the API package.
+    // TODO do not only pipe this out but also put this token into a cookie or something.
     return this.httpClient
       .post<{ token: string }>('/auth/login', { email, password })
       .pipe(map((res) => res.token));
