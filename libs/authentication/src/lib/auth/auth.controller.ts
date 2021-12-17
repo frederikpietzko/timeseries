@@ -7,11 +7,12 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
+import { AuthenticationResponse } from '@timeseries/timeseries-api-interfaces';
 import { UserService } from '../user/user.service';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { LocalAuthGuard } from './guards/local-auth.guard';
-import { PasswordValidator } from './validators/password.validator';
+import { PasswordValidator } from './strategies/validators/password.validator';
 
 @Controller()
 export class AuthController {
@@ -23,7 +24,7 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
-  async login(@Req() req: any) {
+  async login(@Req() req: any): Promise<AuthenticationResponse> {
     return this.authService.login(req.user);
   }
 
@@ -42,7 +43,7 @@ export class AuthController {
       firstname?: string;
       lastname?: string;
     },
-  ) {
+  ): Promise<AuthenticationResponse> {
     if (!(body.email && body.password)) {
       throw new BadRequestException('missing email or password');
     }

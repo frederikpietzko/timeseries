@@ -8,17 +8,51 @@
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["libs/authentication/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/authentication/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/authentication"],
+          "outputs": [
+            "coverage/libs/authentication"
+          ],
           "options": {
             "jestConfig": "libs/authentication/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "base-components": {
+      "projectType": "library",
+      "root": "libs/base-components",
+      "sourceRoot": "libs/base-components/src",
+      "prefix": "timeseries",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/base-components"
+          ],
+          "options": {
+            "jestConfig": "libs/base-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/base-components/src/**/*.ts",
+              "libs/base-components/src/**/*.html"
+            ]
           }
         }
       },
@@ -31,14 +65,20 @@
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["libs/database/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/database/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/database"],
+          "outputs": [
+            "coverage/libs/database"
+          ],
           "options": {
             "jestConfig": "libs/database/jest.config.js",
             "passWithNoTests": true
@@ -55,7 +95,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/feature-auth"],
+          "outputs": [
+            "coverage/libs/feature-auth"
+          ],
           "options": {
             "jestConfig": "libs/feature-auth/jest.config.js",
             "passWithNoTests": true
@@ -81,7 +123,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/timeseries",
             "index": "apps/timeseries/src/index.html",
@@ -93,7 +137,9 @@
               "apps/timeseries/src/favicon.ico",
               "apps/timeseries/src/assets"
             ],
-            "styles": ["apps/timeseries/src/styles.scss"],
+            "styles": [
+              "apps/timeseries/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -161,7 +207,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/timeseries"],
+          "outputs": [
+            "coverage/apps/timeseries"
+          ],
           "options": {
             "jestConfig": "apps/timeseries/jest.config.js",
             "passWithNoTests": true
@@ -177,12 +225,16 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/timeseries-api",
             "main": "apps/timeseries-api/src/main.ts",
             "tsConfig": "apps/timeseries-api/tsconfig.app.json",
-            "assets": ["apps/timeseries-api/src/assets"]
+            "assets": [
+              "apps/timeseries-api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -206,14 +258,20 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/timeseries-api/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/timeseries-api/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/timeseries-api"],
+          "outputs": [
+            "coverage/apps/timeseries-api"
+          ],
           "options": {
             "jestConfig": "apps/timeseries-api/jest.config.js",
             "passWithNoTests": true
@@ -241,14 +299,20 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/timeseries-api-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/timeseries-api-e2e/**/*.{js,ts}"
+            ]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": ["timeseries"]
+      "implicitDependencies": [
+        "timeseries"
+      ]
     },
     "timeseries-api-interfaces": {
       "root": "libs/timeseries-api-interfaces",
@@ -257,9 +321,13 @@
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["libs/timeseries-api-interfaces/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/timeseries-api-interfaces/**/*.ts"
+            ]
           }
         }
       },
@@ -273,7 +341,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/timeseries-data-access"],
+          "outputs": [
+            "coverage/libs/timeseries-data-access"
+          ],
           "options": {
             "jestConfig": "libs/timeseries-data-access/jest.config.js",
             "passWithNoTests": true

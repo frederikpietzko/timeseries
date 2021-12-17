@@ -1,0 +1,8 @@
+<button
+  [classList]="styleProvider.buttonStyles"
+  [id]="id"
+  [type]="type"
+  (click)="onClick && onClick($event)"
+>
+  {{ label }}
+</button>

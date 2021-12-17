@@ -1,0 +1,10 @@
+<pie-label [label]="label" [for]="id"></pie-label>
+<input
+  [id]="id"
+  [name]="name"
+  [type]="type"
+  [classList]="styleProvider.inputStyles"
+  [placeholder]="placeholder ?? ''"
+  [value]="value | async"
+  (input)="onChange($event)"
+/>

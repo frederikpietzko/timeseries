@@ -8,7 +8,7 @@ import { jwtConstants } from './constants';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
-import { PasswordValidator } from './validators/password.validator';
+import { PasswordValidator } from './strategies/validators/password.validator';
 
 @Module({
   controllers: [AuthController],

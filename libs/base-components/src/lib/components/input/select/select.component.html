@@ -1,0 +1,10 @@
+<pie-label [label]="label" [for]="id"></pie-label>
+<select
+  [classList]="styleProvider.inputStyles"
+  [id]="id"
+  [name]="name"
+  [value]="value | async"
+  (change)="onChange($event)"
+>
+  <ng-content></ng-content>
+</select>

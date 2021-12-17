@@ -18,6 +18,7 @@
     "strict": true,
     "paths": {
       "@timeseries/authentication": ["libs/authentication/src/index.ts"],
+      "@timeseries/base-components": ["libs/base-components/src/index.ts"],
       "@timeseries/database": ["libs/database/src/index.ts"],
       "@timeseries/feature-auth": ["libs/feature-auth/src/index.ts"],
       "@timeseries/timeseries-api-interfaces": [
