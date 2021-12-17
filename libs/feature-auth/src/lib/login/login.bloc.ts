@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { AuthenticationService } from './login.service';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Injectable({ providedIn: 'root' })
 export class LoginBloc {

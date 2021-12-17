@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "../../libs/feature-auth/src/lib/login/login.bloc.ts"],
   "compilerOptions": {
     "types": ["jest", "node"]
   }

@@ -1,1 +1,2 @@
-export * from './input.module';
+export * from './text';
+export * from './select';

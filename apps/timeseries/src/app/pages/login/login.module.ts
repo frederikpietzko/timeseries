@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BaseComponentsModule } from '@timeseries/base-components';
-import { LoginComponent } from './login.component';
+import { FeatureAuthModule } from '@timeseries/feature-auth';
+import { LoginPage } from './login.page';
 
 @NgModule({
-  imports: [BaseComponentsModule],
-  declarations: [LoginComponent],
-  exports: [LoginComponent],
+  imports: [CommonModule, BaseComponentsModule, FeatureAuthModule],
+  declarations: [LoginPage],
 })
 export class LoginModule {}

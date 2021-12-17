@@ -6,3 +6,10 @@ export interface LocalAuthenticationRequest {
 export interface AuthenticationResponse {
   access_token: string;
 }
+
+export interface LocalRegisterRequest {
+  email?: string;
+  password?: string;
+  firstname?: string;
+  lastname?: string;
+}

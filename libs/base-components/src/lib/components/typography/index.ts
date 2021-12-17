@@ -1,1 +1,2 @@
-export * from './typography.module';
+export * from './label';
+export * from './error-label';
