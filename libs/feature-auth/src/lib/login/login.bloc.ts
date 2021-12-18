@@ -1,20 +1,27 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { AuthenticationService } from '../authentication/authentication.service';
+import { ValidationService } from '../validation/validation.service';
 
 @Injectable({ providedIn: 'root' })
 export class LoginBloc {
   readonly email = new BehaviorSubject('');
   readonly password = new BehaviorSubject('');
   readonly emailValid: Observable<true | string> = this.email.pipe(
-    map((email) => (email.includes('@') ? true : 'Invalid Email.')),
+    map(
+      (email) =>
+        this.validationService.validateEmail(email) || 'Invalid Email.',
+    ),
   );
   readonly authenticationValid = new BehaviorSubject<true | string>(true);
 
-  constructor(private loginService: AuthenticationService) {}
+  constructor(
+    private authService: AuthenticationService,
+    private validationService: ValidationService,
+  ) {}
 
   public login() {
-    const loginStream = this.loginService.login(
+    const loginStream = this.authService.login(
       this.email.value,
       this.password.value,
     );
