@@ -8,10 +8,7 @@ export class LoginBloc {
   readonly email = new BehaviorSubject('');
   readonly password = new BehaviorSubject('');
   readonly emailValid: Observable<true | string> = this.email.pipe(
-    map(
-      (email) =>
-        this.validationService.validateEmail(email) || 'Invalid Email.',
-    ),
+    map(this.validationService.validateEmail),
   );
   readonly authenticationValid = new BehaviorSubject<true | string>(true);
 

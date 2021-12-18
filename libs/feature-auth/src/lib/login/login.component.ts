@@ -14,11 +14,7 @@ import { LoginBloc } from './login.bloc';
 export class LoginComponent implements OnInit, OnDestroy {
   constructor(readonly bloc: LoginBloc) {}
 
-  ngOnInit(): void {
-    this.bloc.password.subscribe((value) => {
-      console.log(value);
-    });
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.bloc.dispose();

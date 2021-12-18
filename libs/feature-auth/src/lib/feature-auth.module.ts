@@ -7,6 +7,6 @@ import { RegisterComponent } from './register/register.component';
 @NgModule({
   imports: [CommonModule, BaseComponentsModule],
   declarations: [LoginComponent, RegisterComponent],
-  exports: [LoginComponent],
+  exports: [LoginComponent, RegisterComponent],
 })
 export class FeatureAuthModule {}

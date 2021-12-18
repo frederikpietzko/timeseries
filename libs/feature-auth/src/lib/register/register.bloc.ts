@@ -1,27 +1,28 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, combineLatest, concatAll, map } from 'rxjs';
+import {
+  BehaviorSubject,
+  combineLatest,
+  concatAll,
+  map,
+  Observable,
+} from 'rxjs';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { ValidationService } from '../validation/validation.service';
 
 @Injectable({ providedIn: 'root' })
 export class RegisterBloc {
-  constructor(
-    private authService: AuthenticationService,
-    private validationService: ValidationService,
-  ) {}
-
   readonly email = new BehaviorSubject('');
-  readonly emailValid = this.email.pipe(
+  readonly emailValid: Observable<true | string> = this.email.pipe(
     map(this.validationService.validateEmail),
   );
 
   readonly password = new BehaviorSubject('');
-  readonly passwordValid = this.password.pipe(
+  readonly passwordValid: Observable<true | string> = this.password.pipe(
     map(this.validationService.validatePassword),
   );
 
   readonly repeatedPassword = new BehaviorSubject('');
-  readonly passwordsMatch = combineLatest([
+  readonly passwordsMatch: Observable<true | string> = combineLatest([
     this.password,
     this.repeatedPassword,
   ]).pipe(
@@ -31,12 +32,12 @@ export class RegisterBloc {
   );
 
   readonly firstname = new BehaviorSubject('');
-  readonly firstnameValid = this.firstname.pipe(
+  readonly firstnameValid: Observable<true | string> = this.firstname.pipe(
     map(this.validationService.notEmpty),
   );
 
   readonly lastname = new BehaviorSubject('');
-  readonly lastnameValid = this.lastname.pipe(
+  readonly lastnameValid: Observable<true | string> = this.lastname.pipe(
     map(this.validationService.notEmpty),
   );
 
@@ -51,6 +52,11 @@ export class RegisterBloc {
       validationResults.every((val) => val === true),
     ),
   );
+
+  constructor(
+    private authService: AuthenticationService,
+    private validationService: ValidationService,
+  ) {}
 
   public register() {
     return combineLatest([
