@@ -1,11 +1,12 @@
 <div class="bg-white py-8 px-6 shadow rounded-lg sm:px-10">
-  <div mt-3>
+  <div>
     <pie-text-input
       [value]="bloc.email"
       label="Email Address"
       id="email"
       aria-required="true"
       name="email"
+      type="email"
       [validationResult]="bloc.emailValid"
     >
     </pie-text-input>
@@ -23,6 +24,6 @@
     [error]="bloc.authenticationValid"
   ></pie-error-label>
   <div class="mt-10">
-    <pie-button label="Sign In"></pie-button>
+    <pie-button (onClick)="login()" label="Sign In"></pie-button>
   </div>
 </div>

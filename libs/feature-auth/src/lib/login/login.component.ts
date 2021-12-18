@@ -23,4 +23,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.bloc.dispose();
   }
+
+  login() {
+    return this.bloc.login().subscribe();
+  }
 }

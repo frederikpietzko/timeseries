@@ -2,7 +2,7 @@
   [classList]="styleProvider.buttonStyles"
   [id]="id"
   [type]="type"
-  (click)="onClick && onClick($event)"
+  (click)="onClick && _onClick($event)"
 >
   {{ label }}
 </button>

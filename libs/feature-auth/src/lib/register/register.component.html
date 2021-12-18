@@ -1,1 +1,57 @@
-<p>register works!</p>
+<div class="bg-white py-8 px-6 shadow rounded-lg sm:px-10">
+  <div>
+    <pie-text-input
+      [value]="bloc.email"
+      label="Email Address"
+      id="email"
+      required="true"
+      name="email"
+      type="email"
+      [validationResult]="bloc.emailValid"
+    >
+    </pie-text-input>
+  </div>
+  <div class="mt-5">
+    <pie-password-input
+      [value]="bloc.password"
+      label="Password"
+      id="password"
+      name="password"
+      [validationResult]="bloc.passwordValid"
+    ></pie-password-input>
+  </div>
+  <div class="mt-5">
+    <pie-password-input
+      [value]="bloc.repeatedPassword"
+      label="Repeat Password"
+      id="repeat-password"
+      name="repeat-password"
+      [validationResult]="bloc.passwordsMatch"
+    ></pie-password-input>
+  </div>
+  <div class="mt-5">
+    <pie-text-input
+      [value]="bloc.firstname"
+      label="Firstname"
+      name="firstname"
+      id="firstname"
+      aria-required="true"
+      required="true"
+      [validationResult]="bloc.firstnameValid"
+    ></pie-text-input>
+  </div>
+  <div class="mt-5">
+    <pie-text-input
+      [value]="bloc.lastname"
+      label="Lastname"
+      name="lastname"
+      id="lastname"
+      aria-required="true"
+      required="true"
+      [validationResult]="bloc.lastnameValid"
+    ></pie-text-input>
+  </div>
+  <div class="mt-10">
+    <pie-button (onClick)="register()" label="Register"></pie-button>
+  </div>
+</div>
