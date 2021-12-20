@@ -1,5 +1,5 @@
 <span
   [ngClass]="styleProvider.errorLabelStyles"
   *ngIf="!!(error | async) && (error | async) !== true"
-  >{{ error | async }}</span
+  >{{ _error | async }}</span
 >

@@ -2,7 +2,7 @@
   <div>
     <pie-text-input
       [value]="bloc.email"
-      label="Email Address"
+      label="register.email.address"
       id="email"
       required="true"
       name="email"
@@ -14,7 +14,7 @@
   <div class="mt-5">
     <pie-password-input
       [value]="bloc.password"
-      label="Password"
+      label="register.password"
       id="password"
       name="password"
       [validationResult]="bloc.passwordValid"
@@ -23,7 +23,7 @@
   <div class="mt-5">
     <pie-password-input
       [value]="bloc.repeatedPassword"
-      label="Repeat Password"
+      label="register.repeat.password"
       id="repeat-password"
       name="repeat-password"
       [validationResult]="bloc.passwordsMatch"
@@ -32,7 +32,7 @@
   <div class="mt-5">
     <pie-text-input
       [value]="bloc.firstname"
-      label="Firstname"
+      label="register.firstname"
       name="firstname"
       id="firstname"
       aria-required="true"
@@ -43,7 +43,7 @@
   <div class="mt-5">
     <pie-text-input
       [value]="bloc.lastname"
-      label="Lastname"
+      label="register.lastname"
       name="lastname"
       id="lastname"
       aria-required="true"
@@ -52,6 +52,10 @@
     ></pie-text-input>
   </div>
   <div class="mt-10">
-    <pie-button (onClick)="register()" label="Register"></pie-button>
+    <pie-button
+      (onClick)="register()"
+      [enabled]="bloc.registrationValid"
+      label="register.register"
+    ></pie-button>
   </div>
 </div>

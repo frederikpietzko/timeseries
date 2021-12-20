@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { concatAll, map, Observable, of } from 'rxjs';
 import { StyleProvider } from '../../styling/styling.provider';
 
 @Component({
@@ -12,7 +13,17 @@ export class ErrorLabelComponent implements OnInit {
     | null
     | undefined;
 
-  constructor(readonly styleProvider: StyleProvider) {}
+  _error: Observable<string> = (this.error ?? of(true)).pipe(
+    map((err) => {
+      return !err || err === true ? of('') : this.translateService.get(err);
+    }),
+    concatAll(),
+  );
+
+  constructor(
+    readonly styleProvider: StyleProvider,
+    readonly translateService: TranslateService,
+  ) {}
 
   ngOnInit(): void {}
 }

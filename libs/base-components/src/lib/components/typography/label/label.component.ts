@@ -8,6 +8,7 @@ import { StyleProvider } from '../../styling/styling.provider';
 export class LabelComponent implements OnInit {
   @Input() label!: string;
   @Input() for!: string;
+
   constructor(readonly styleProvider: StyleProvider) {}
 
   ngOnInit(): void {}

@@ -1,10 +1,12 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { AuthenticationModule } from '@timeseries/authentication';
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
 import { BaseComponentsModule } from '@timeseries/base-components';
-import { FeatureAuthModule } from '@timeseries/feature-auth';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { GraphQLModule } from './graphql.module';

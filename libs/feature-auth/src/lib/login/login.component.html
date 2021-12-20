@@ -2,7 +2,7 @@
   <div>
     <pie-text-input
       [value]="bloc.email"
-      label="Email Address"
+      label="login.email.address"
       id="email"
       aria-required="true"
       name="email"
@@ -14,16 +14,17 @@
   <div class="mt-5">
     <pie-password-input
       [value]="bloc.password"
-      label="Password"
+      label="login.password"
       id="password"
       name="password"
+      [validationResult]="bloc.passwordValid"
     ></pie-password-input>
   </div>
-  <pie-error-label
-    class="mt-4"
-    [error]="bloc.authenticationValid"
-  ></pie-error-label>
   <div class="mt-10">
-    <pie-button (onClick)="login()" label="Sign In"></pie-button>
+    <pie-button
+      (onClick)="login()"
+      [enabled]="bloc.authenticationValid"
+      label="login.sign.in"
+    ></pie-button>
   </div>
 </div>

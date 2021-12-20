@@ -1,8 +1,8 @@
 <button
-  [classList]="styleProvider.buttonStyles"
+  [classList]="styles | async"
   [id]="id"
   [type]="type"
-  (click)="onClick && _onClick($event)"
+  (click)="_onClick($event)"
 >
-  {{ label }}
+  {{ label | translate }}
 </button>

@@ -20,7 +20,11 @@ export class PropertiesHttpLoader implements TranslateLoader {
     const lines = text.split('\n');
     const properties = {};
     for (const line of lines) {
-      const trimmed = line.trim().split('=');
+      const trimmedLine = line.trim();
+      if (trimmedLine.length === 0) {
+        continue;
+      }
+      const trimmed = trimmedLine.split('=');
       if (trimmed.length != 2) {
         throw new Error(`Invalid Translation Property: "${line}"`);
       }
